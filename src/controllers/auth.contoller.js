@@ -29,8 +29,14 @@ export const register = async (req, res) => {
       id: userSaved._id,
     });
 
-    res.cookie("token", token, { sameSite: "None" });
+//    res.cookie('token', token, {
+//    httpOnly: true,
+//    secure: false,      // <--- MUY IMPORTANTE: Como estás usando HTTP y no HTTPS en Vagrant, debe estar en false
+///    sameSite: 'lax',    // O 'none' si te llega a dar problemas de sitio cruzado  
+//    });
 
+    res.cookie("token", token);
+    
     res.json({
       id: userSaved._id,
       username: userSaved.username,
@@ -62,8 +68,8 @@ export const login = async (req, res) => {
       id: userFound._id,
       username: userFound.username,
     });
-
-    res.cookie("token", token, { sameSite: "None" });
+    
+    res.cookie("token", token);
 
     res.json({
       id: userFound._id,

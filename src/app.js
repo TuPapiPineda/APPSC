@@ -8,6 +8,7 @@ import cookieParser from "cookie-parser";
 //import taksRoutes from "./routes/tasks.routes.js";
 //import { FRONTEND_URL } from "./config.js";
 
+
 const app = express();
 app.use(
   cors({
